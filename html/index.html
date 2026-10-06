@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Aplicação de lista de tarefas desenvolvida com HTML, CSS e JavaScript."
+    >
+
+    <title>TaskFlow | Lista de Tarefas</title>
+
+    <link rel="stylesheet" href="C:\Users\Aluno\Documents\to-do_list\css\style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <section class="todo-card">
+
+            <header class="todo-header">
+
+                <div class="logo">
+                    <div class="logo-icon">✓</div>
+
+                    <div>
+                        <span class="logo-name">TaskFlow</span>
+                        <p>Organize seu dia com facilidade.</p>
+                    </div>
+                </div>
+
+            </header>
+
+            <section class="todo-content">
+
+                <div class="title-area">
+                    <span class="subtitle">MINHAS TAREFAS</span>
+
+                    <h1>
+                        O que precisa ser
+                        <span>feito hoje?</span>
+                    </h1>
+
+                    <p>
+                        Adicione suas tarefas e marque aquelas que já foram concluídas.
+                    </p>
+                </div>
+
+                <form id="formTarefa" class="task-form">
+
+                    <div class="input-container">
+
+                        <span class="input-icon">✦</span>
+
+                        <input
+                            type="text"
+                            id="inputTarefa"
+                            placeholder="Digite uma nova tarefa..."
+                            maxlength="80"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="add-button"
+                    >
+                        <span>+</span>
+                        Adicionar
+                    </button>
+
+                </form>
+
+                <div
+                    id="mensagemErro"
+                    class="error-message"
+                ></div>
+
+                <div class="list-header">
+
+                    <h2>Suas tarefas</h2>
+
+                    <span id="quantidadeTarefas">
+                        0 tarefas
+                    </span>
+
+                </div>
+
+                <div
+                    id="emptyState"
+                    class="empty-state"
+                >
+
+                    <div class="empty-icon">
+                        ✓
+                    </div>
+
+                    <h3>Nenhuma tarefa por aqui</h3>
+
+                    <p>
+                        Adicione uma tarefa acima para começar.
+                    </p>
+
+                </div>
+
+                <ul
+                    id="listaTarefas"
+                    class="task-list"
+                ></ul>
+
+            </section>
+
+            <footer class="todo-footer">
+                <p>
+                    Clique sobre uma tarefa para marcá-la como concluída.
+                </p>
+            </footer>
+
+        </section>
+
+    </main>
+
+    <script src="C:\Users\Aluno\Documents\to-do_list\js\script.js"></script>
+
+</body>
+</html>

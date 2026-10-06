@@ -1,0 +1,839 @@
+/* ============================= */
+/* CONFIGURAÇÕES GERAIS          */
+/* ============================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-1: #090b18;
+    --background-2: #10142d;
+
+    --card: rgba(18, 22, 48, 0.88);
+    --card-secondary: #171c3d;
+
+    --purple: #7c3aed;
+    --purple-light: #a855f7;
+    --blue: #2563eb;
+    --cyan: #06b6d4;
+    --pink: #ec4899;
+
+    --green: #22c55e;
+    --red: #ef4444;
+
+    --white: #ffffff;
+    --text: #e7e9f6;
+    --text-secondary: #969bb8;
+
+    --border: rgba(255, 255, 255, 0.08);
+
+    --shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45);
+}
+
+
+/* ============================= */
+/* BODY                          */
+/* ============================= */
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(124, 58, 237, 0.35),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(37, 99, 235, 0.3),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            var(--background-1),
+            var(--background-2)
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+
+/* ============================= */
+/* APLICAÇÃO                     */
+/* ============================= */
+
+.app {
+    width: 100%;
+    max-width: 760px;
+}
+
+
+/* ============================= */
+/* CARD PRINCIPAL                */
+/* ============================= */
+
+.todo-card {
+    width: 100%;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 28px;
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: blur(20px);
+
+    overflow: hidden;
+
+    animation:
+        aparecer 0.7s ease;
+}
+
+
+/* ============================= */
+/* CABEÇALHO                     */
+/* ============================= */
+
+.todo-header {
+    padding: 25px 32px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(124, 58, 237, 0.12),
+            rgba(37, 99, 235, 0.08)
+        );
+}
+
+
+/* ============================= */
+/* LOGO                          */
+/* ============================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--blue)
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(124, 58, 237, 0.4);
+}
+
+.logo-name {
+    display: block;
+
+    font-size: 21px;
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+.logo p {
+    margin-top: 2px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+
+/* ============================= */
+/* CONTEÚDO                      */
+/* ============================= */
+
+.todo-content {
+    padding: 38px 32px;
+}
+
+
+/* ============================= */
+/* TÍTULO                        */
+/* ============================= */
+
+.title-area {
+    margin-bottom: 32px;
+}
+
+.subtitle {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--purple-light);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.title-area h1 {
+    max-width: 560px;
+
+    font-size:
+        clamp(30px, 6vw, 46px);
+
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+}
+
+.title-area h1 span {
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple-light),
+            var(--cyan)
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.title-area p {
+    margin-top: 15px;
+
+    color: var(--text-secondary);
+
+    line-height: 1.6;
+
+    font-size: 15px;
+}
+
+
+/* ============================= */
+/* FORMULÁRIO                    */
+/* ============================= */
+
+.task-form {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.input-container {
+    position: relative;
+
+    flex: 1;
+}
+
+.input-icon {
+    position: absolute;
+
+    top: 50%;
+    left: 18px;
+
+    transform:
+        translateY(-50%);
+
+    color: var(--purple-light);
+
+    pointer-events: none;
+}
+
+#inputTarefa {
+    width: 100%;
+    height: 58px;
+
+    padding:
+        0 20px 0 48px;
+
+    border:
+        1px solid
+        var(--border);
+
+    outline: none;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    color: var(--white);
+
+    font-size: 15px;
+
+    transition:
+        border 0.25s,
+        box-shadow 0.25s,
+        background 0.25s;
+}
+
+#inputTarefa::placeholder {
+    color: #767c9e;
+}
+
+#inputTarefa:focus {
+    border-color:
+        rgba(168, 85, 247, 0.65);
+
+    background:
+        rgba(255, 255, 255, 0.065);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(124, 58, 237, 0.12);
+}
+
+
+/* ============================= */
+/* BOTÃO ADICIONAR               */
+/* ============================= */
+
+.add-button {
+    min-width: 145px;
+    height: 58px;
+
+    padding: 0 22px;
+
+    border: none;
+    border-radius: 16px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--blue)
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(91, 65, 255, 0.28);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.add-button span {
+    margin-right: 5px;
+
+    font-size: 20px;
+
+    vertical-align: -1px;
+}
+
+.add-button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(91, 65, 255, 0.38);
+}
+
+.add-button:active {
+    transform:
+        translateY(0);
+}
+
+
+/* ============================= */
+/* MENSAGEM DE ERRO              */
+/* ============================= */
+
+.error-message {
+    min-height: 22px;
+
+    margin-top: 8px;
+
+    color: #f87171;
+
+    font-size: 13px;
+
+    opacity: 0;
+
+    transform:
+        translateY(-4px);
+
+    transition:
+        0.2s;
+}
+
+.error-message.active {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* ============================= */
+/* CABEÇALHO DA LISTA            */
+/* ============================= */
+
+.list-header {
+    margin-top: 22px;
+    margin-bottom: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list-header h2 {
+    font-size: 17px;
+}
+
+#quantidadeTarefas {
+    padding:
+        6px 11px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(124, 58, 237, 0.15);
+
+    color:
+        var(--purple-light);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* ============================= */
+/* LISTA                         */
+/* ============================= */
+
+.task-list {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 11px;
+}
+
+
+/* ============================= */
+/* TAREFA                        */
+/* ============================= */
+
+.task-item {
+    min-height: 67px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding:
+        13px 15px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    transition:
+        transform 0.25s,
+        background 0.25s,
+        border 0.25s;
+
+    animation:
+        adicionarTarefa 0.35s ease;
+}
+
+.task-item:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    border-color:
+        rgba(168, 85, 247, 0.25);
+}
+
+
+/* ============================= */
+/* BOTÃO DE CONCLUSÃO            */
+/* ============================= */
+
+.check-button {
+    width: 28px;
+    height: 28px;
+
+    flex-shrink: 0;
+
+    border:
+        2px solid #6b7191;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    background:
+        transparent;
+
+    color: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition:
+        0.25s;
+}
+
+.check-button:hover {
+    border-color:
+        var(--purple-light);
+}
+
+
+/* ============================= */
+/* TEXTO DA TAREFA               */
+/* ============================= */
+
+.task-text {
+    flex: 1;
+
+    word-break: break-word;
+
+    cursor: pointer;
+
+    line-height: 1.4;
+
+    transition:
+        color 0.25s,
+        opacity 0.25s;
+}
+
+
+/* ============================= */
+/* TAREFA CONCLUÍDA              */
+/* ============================= */
+
+.task-item.completed {
+    opacity: 0.68;
+}
+
+.task-item.completed
+.check-button {
+    border-color:
+        var(--green);
+
+    background:
+        var(--green);
+
+    color:
+        white;
+}
+
+.task-item.completed
+.task-text {
+    color:
+        var(--text-secondary);
+
+    text-decoration:
+        line-through;
+}
+
+
+/* ============================= */
+/* BOTÃO EXCLUIR                 */
+/* ============================= */
+
+.delete-button {
+    width: 39px;
+    height: 39px;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    color: #f87171;
+
+    background:
+        rgba(239, 68, 68, 0.1);
+
+    font-size: 16px;
+
+    transition:
+        background 0.2s,
+        color 0.2s,
+        transform 0.2s;
+}
+
+.delete-button:hover {
+    color: white;
+
+    background:
+        var(--red);
+
+    transform:
+        scale(1.05);
+}
+
+
+/* ============================= */
+/* LISTA VAZIA                   */
+/* ============================= */
+
+.empty-state {
+    padding:
+        35px 20px;
+
+    text-align: center;
+
+    border:
+        1px dashed
+        rgba(255, 255, 255, 0.1);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+}
+
+.empty-icon {
+    width: 58px;
+    height: 58px;
+
+    margin:
+        0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    font-size: 24px;
+
+    color:
+        var(--purple-light);
+
+    background:
+        rgba(124, 58, 237, 0.12);
+}
+
+.empty-state h3 {
+    font-size: 16px;
+
+    margin-bottom: 6px;
+}
+
+.empty-state p {
+    color:
+        var(--text-secondary);
+
+    font-size: 13px;
+}
+
+
+/* ============================= */
+/* RODAPÉ                        */
+/* ============================= */
+
+.todo-footer {
+    padding:
+        19px 32px;
+
+    text-align: center;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    background:
+        rgba(255, 255, 255, 0.02);
+}
+
+.todo-footer p {
+    color:
+        var(--text-secondary);
+
+    font-size: 12px;
+}
+
+
+/* ============================= */
+/* ANIMAÇÕES                     */
+/* ============================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes adicionarTarefa {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-10px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+@keyframes removerTarefa {
+
+    to {
+        opacity: 0;
+
+        transform:
+            translateX(35px);
+
+        max-height: 0;
+
+        padding-top: 0;
+        padding-bottom: 0;
+
+        margin: 0;
+    }
+
+}
+
+.removing {
+    animation:
+        removerTarefa
+        0.3s ease
+        forwards;
+}
+
+
+/* ============================= */
+/* RESPONSIVIDADE                */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding:
+            20px 14px;
+
+        align-items:
+            flex-start;
+    }
+
+    .todo-card {
+        border-radius:
+            22px;
+    }
+
+    .todo-header {
+        padding:
+            21px;
+    }
+
+    .todo-content {
+        padding:
+            30px 20px;
+    }
+
+    .title-area h1 {
+        font-size:
+            34px;
+    }
+
+    .task-form {
+        flex-direction:
+            column;
+    }
+
+    .add-button {
+        width: 100%;
+    }
+
+    .todo-footer {
+        padding:
+            18px 20px;
+    }
+
+}
